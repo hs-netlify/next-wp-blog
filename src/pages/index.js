@@ -6,33 +6,38 @@ import { getApolloClient } from "lib/apollo-client";
 
 export default function Home({ page, posts }) {
   const { title, description } = page;
+
+  const card = `w-full bg-gray-200 my-4 rounded shadow p-4 hover:bg-gray-300 transition-all cursor-pointer duration-100 hover:scale-105`;
   return (
-    <div className="container">
+    <div className="w-full bg-cover bg-center bg-hero-pattern">
       <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>Next JS and WordPress</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className="text-white h-96">
+        <div className="flex flex-col text-4xl justify-center items-center h-full w-full bg-black bg-opacity-20">
+          <h1>Next JS and WordPress</h1>
 
-      <main className="main">
-        <h1 className="title text-red-400">{title}</h1>
-
-        <p className="description">{description}</p>
-
-        <ul className="grid">
+          <h2 className="text-white pt-12">A Blog Story</h2>
+        </div>
+      </div>
+      <div className="flex flex-col items-center bg-black bg-opacity-20">
+        <ul className="items-center flex justify-center flex-col max-w-5xl">
           {posts &&
             posts.length > 0 &&
             posts.map((post) => {
               return (
-                <li key={post.slug} className="card">
+                <li key={post.slug} className={card}>
                   <Link href={post.path}>
                     <a>
                       <h3
+                        className="text-2xl"
                         dangerouslySetInnerHTML={{
                           __html: post.title,
                         }}
                       />
                       <div
+                        className="pt-4"
                         dangerouslySetInnerHTML={{
                           __html: post.excerpt,
                         }}
@@ -50,7 +55,7 @@ export default function Home({ page, posts }) {
               </li>
             ))}
         </ul>
-      </main>
+      </div>
     </div>
   );
 }
