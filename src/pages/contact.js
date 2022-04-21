@@ -66,7 +66,7 @@ const ContactPage = () => {
   return (
     <div className="container">
       <Head>
-        <title>Fran-Netlify Forms Example</title>
+        <title>Contact Us</title>
       </Head>
       <h1>Contact Us</h1>
 

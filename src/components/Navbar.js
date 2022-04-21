@@ -13,7 +13,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li className={navLink + " border-r pr-4 border-white"}>
-            <Link href="/">
+            <Link href="/info">
               <a>Info</a>
             </Link>
           </li>
