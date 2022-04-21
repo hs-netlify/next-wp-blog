@@ -1,14 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-
 export function middleware(req) {
   const someCookie = req.cookies["something"];
-  console.log("someCookie");
+  const base = process.env.NEXT_PUBLIC_BASE_URL;
 
-  const res = NextResponse.rewrite(
-    `/something/${someCookie ? someCookie : ""}`
-  );
-
-  //  const res = NextResponse.rewrite("/info");
+  console.log(someCookie);
+  const res = someCookie ? NextResponse.rewrite(`${base}/${someCookie}`) : null;
 
   return res;
 }
