@@ -15,7 +15,9 @@ export default async (req, context) => {
     return new Response(`Your ip is ${ip}`);
   } else {
     return new Response(
-      `We're sorry, you can't access our content! - Your IP is ${ip}`,
+      `We're sorry, you can't access our content! - Your req ${JSON.stringify(
+        req
+      )}`,
       {
         headers: { "content-type": "text/html" },
         status: 401,
