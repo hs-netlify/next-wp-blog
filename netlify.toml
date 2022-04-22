@@ -2,3 +2,7 @@
   from='/info'
   to='https://www.dccomics.com/blog/2018/04/05/the-weird-and-wonderful-history-of-kryptonite'
   status='200'
+
+[[edge_functions]]
+  path='/*'
+  function='IpBlocker'
