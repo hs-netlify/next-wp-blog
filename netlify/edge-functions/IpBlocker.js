@@ -7,8 +7,8 @@ export default async (req, context) => {
   for (var pair of req.headers.entries()) {
     headers.push(pair);
   }
-
-  console.log(headers);
+  console.log(req.headers);
+  console.log(JSON.stringify(context));
 
   const ip = req.headers.get("x-forwarded-for");
 
@@ -16,9 +16,9 @@ export default async (req, context) => {
     return new Response(`Your ip is ${ip}`);
   } else {
     return new Response(
-      `We're sorry, you can't access our content! - Your req ${JSON.stringify(
+      `We're sorry, you can't access our content!\n Your req ${JSON.stringify(
         headers
-      )}`,
+      )}\n your context: ${JSON.stringify(context)}`,
       {
         headers: { "content-type": "text/html" },
         status: 401,
